@@ -116,7 +116,10 @@ export function WithdrawalModal({ product, fifoBatch, open, onClose }: Withdrawa
 
   return (
     <Dialog open={open} onOpenChange={(open: boolean) => { if (!open && !isSubmitting) onClose() }}>
-      <DialogContent showCloseButton={!isSubmitting} className="relative sm:max-w-md">
+      <DialogContent
+        showCloseButton={!isSubmitting}
+        className="inset-x-4 top-4 bottom-4 grid-rows-[auto_minmax(0,1fr)_auto] max-h-none w-auto max-w-none translate-x-0 translate-y-0 overflow-hidden pb-0 sm:inset-auto sm:top-1/2 sm:left-1/2 sm:bottom-auto sm:w-full sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:overflow-y-auto sm:pb-4"
+      >
         {/* Loading overlay per D-08 */}
         {isSubmitting && (
           <div className="absolute inset-0 bg-background/80 flex items-center justify-center rounded-xl z-10">
@@ -141,7 +144,7 @@ export function WithdrawalModal({ product, fifoBatch, open, onClose }: Withdrawa
               </DialogDescription>
             </DialogHeader>
 
-            <div className="space-y-4">
+            <div className="min-h-0 space-y-4 overflow-y-auto pr-1">
               {/* FIFO batch display per D-01 */}
               {fifoBatch && (
                 <div className="flex items-center justify-between">
@@ -198,7 +201,7 @@ export function WithdrawalModal({ product, fifoBatch, open, onClose }: Withdrawa
               )}
             </div>
 
-            <DialogFooter className="sticky bottom-0">
+            <DialogFooter className="shrink-0">
               <Button variant="outline" onClick={onClose} disabled={isSubmitting}>
                 Cancelar
               </Button>
