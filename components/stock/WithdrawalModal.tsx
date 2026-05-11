@@ -116,7 +116,7 @@ export function WithdrawalModal({ product, fifoBatch, open, onClose }: Withdrawa
 
   return (
     <Dialog open={open} onOpenChange={(open: boolean) => { if (!open && !isSubmitting) onClose() }}>
-      <DialogContent showCloseButton={!isSubmitting} className="sm:max-w-md relative">
+      <DialogContent showCloseButton={!isSubmitting} className="relative sm:max-w-md">
         {/* Loading overlay per D-08 */}
         {isSubmitting && (
           <div className="absolute inset-0 bg-background/80 flex items-center justify-center rounded-xl z-10">
@@ -198,7 +198,7 @@ export function WithdrawalModal({ product, fifoBatch, open, onClose }: Withdrawa
               )}
             </div>
 
-            <DialogFooter>
+            <DialogFooter className="sticky bottom-0">
               <Button variant="outline" onClick={onClose} disabled={isSubmitting}>
                 Cancelar
               </Button>
